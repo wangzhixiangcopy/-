@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改伪元素的样式</title>
+    <style>
+        div{
+            width: 400px;
+            height: 200px;
+            background: #00f;
+            border: 1px solid #000;
+        }
+        /* 伪元素初始样式 */
+        .end::after{
+            display: inline-block;
+            content: '';
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: red;
+        }
+        /* 期望伪元素样式 */
+        .orange::after{
+            display: inline-block;
+            content :'';
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            border-radius:50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="end"></div>
+    <script>
+    oDiv = document.getElementsByTagName('div')[0];
+    // 点击事件（更换div 的class名）
+    oDiv.addEventListener('click',function() {
+        this.className = 'orange';
+    },false);
+    </script>
+</body>
+</html>
